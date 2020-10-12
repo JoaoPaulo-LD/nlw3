@@ -1,11 +1,16 @@
 import React from 'react'
+
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Landing from './pages/Landing'
+import OrphanagesMap from './pages/OrphanagesMap'
 
 const Routes: React.FC = () => {
   return (
     <BrowserRouter>
-      <Route path="/" component={Landing} />
+      <Switch>
+        <Route path="/" exact component={Landing} />
+        <Route path="/orphanages" component={OrphanagesMap} />
+      </Switch>
     </BrowserRouter>
   )
 }
