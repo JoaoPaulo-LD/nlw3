@@ -1,37 +1,9 @@
 import { Router, Request, Response } from 'express'
-import { getRepository } from 'typeorm'
-import Orphanage from './models/Orphanages'
 
-import './database/connection'
+import OrphanagesController from './controllers/OrphanagesController'
 
 const routes = Router()
 
-routes.post('/orphanages', async (req: Request, res: Response) => {
-  const {
-    name,
-    latitude,
-    longitude,
-    about,
-    instructions,
-    opening_hours,
-    open_on_weekends
-  } = req.body
-
-  const orphanagesRepository = getRepository(Orphanage)
-
-  const orphanage = orphanagesRepository.create({
-    name,
-    latitude,
-    longitude,
-    about,
-    instructions,
-    opening_hours,
-    open_on_weekends
-  })
-
-  await orphanagesRepository.save(orphanage)
-
-  return res.status(201).json(orphanage)
-})
+routes.post('/orphanages', OrphanagesController.create)
 
 export default routes
