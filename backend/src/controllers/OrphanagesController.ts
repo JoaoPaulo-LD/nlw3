@@ -18,19 +18,23 @@ export default {
 
     const orphanagesRepository = getRepository(Orphanage)
 
-    const orphanage = orphanagesRepository.create({
-      name,
-      latitude,
-      longitude,
-      about,
-      instructions,
-      opening_hours,
-      open_on_weekends
-    })
+    try {
+      const orphanage = orphanagesRepository.create({
+        name,
+        latitude,
+        longitude,
+        about,
+        instructions,
+        opening_hours,
+        open_on_weekends
+      })
 
-    await orphanagesRepository.save(orphanage)
+      await orphanagesRepository.save(orphanage)
 
-    return res.status(201).json(orphanage)
+      return res.status(201).json(orphanage)
+    } catch (e) {
+      console.log(e)
+    }
   },
 
   async index(req: Request, res: Response) {
