@@ -11,7 +11,7 @@ const Sidebar: React.FC = () => {
   const { goBack } = useHistory()
 
   return (
-    <aside>
+    <aside className='app-sidebar'>
       <img src={mapMarkerImg} alt="Happy" />
 
       <footer>
