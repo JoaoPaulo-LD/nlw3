@@ -9,17 +9,12 @@ import mapMarkerimg from '../images/map-marker.svg'
 import '../styles/pages/orphanages-map.css'
 import mapIcon from '../utils/mapIcon'
 import api from '../services/api'
-import { map } from 'leaflet'
 
 interface Orphanage {
   id: number,
   name: string,
-  instructions: string,
-  about: string,
   latitude: number,
   longitude: number,
-  open_on_weekends: boolean,
-  opening_hours: string
 }
 
 const OrphanagesMap: React.FC = () => {
