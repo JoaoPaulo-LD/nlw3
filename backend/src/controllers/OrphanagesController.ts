@@ -8,8 +8,6 @@ import '../database/connection'
 
 export default {
   async create(req: Request, res: Response) {
-    console.log(req.files)
-
     const {
       name,
       latitude,
